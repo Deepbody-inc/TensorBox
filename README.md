@@ -5,7 +5,7 @@
 TensorBox is a project for training neural networks to detect objects in images. 
 Training requires a json file (e.g. [here](http://russellsstewart.com/s/tensorbox/test_boxes.json))
 containing a list of images and the bounding boxes in each image.
-The basic model implements the simple and robust GoogLeNet-OverFeat algorithm with attention.
+The basic model implements the simple and robust GoogLeNet-OverFeat algorithm with attention. We added further code to help with the custom use and processing of custom datasets.
 
 ## OverFeat Installation & Training
 First, [install TensorFlow from source or pip](https://www.tensorflow.org/versions/r1.2/install/) (NB: source installs currently break threading on 1.2)
