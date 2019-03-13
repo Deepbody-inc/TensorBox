@@ -10,7 +10,7 @@ The basic model implements the simple and robust GoogLeNet-OverFeat algorithm wi
 ## OverFeat Installation & Training
 First, [install TensorFlow from source or pip](https://www.tensorflow.org/versions/r1.2/install/) (NB: source installs currently break threading on 1.2)
 
-    $ git clone http://github.com/russell91/tensorbox
+    $ git clone http://github.com/aarac/TensorBox
     $ cd tensorbox
     $ ./download_data.sh
     $ cd /path/to/tensorbox/utils && python setup.py install && cd ..
@@ -100,6 +100,5 @@ For example, the following is a screenshot of a Tensorboard comparing two differ
 
 If you're new to object detection, and want to chat with other people that are working on similar problems, check out the community chat at https://gitter.im/Russell91/TensorBox.
 
-If you would like to hire me as a consultant for Computer Vision, you can email me at russell.sb.stewart@gmail.com
 
 
