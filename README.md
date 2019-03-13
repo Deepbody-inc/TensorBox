@@ -1,4 +1,4 @@
-## Currently works with Tensorflow 1.7
+# Modified version of Tensorbox for DeepBehavior purposes
 
 <img src="https://travis-ci.org/TensorBox/TensorBox.svg?branch=master"></img>
 
