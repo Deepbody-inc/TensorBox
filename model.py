@@ -500,7 +500,7 @@ class TensorBox(object):
 
             # train model for N iterations
             start = time.time()
-            max_iter = self.H['solver'].get('max_iter', 10000000)
+            max_iter = self.H['solver'].get('max_iter', 600000)
             for i in xrange(max_iter):
                 display_iter = self.H['logging']['display_iter']
                 adjusted_lr = (self.H['solver']['learning_rate'] *
