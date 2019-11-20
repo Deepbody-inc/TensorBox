@@ -23,6 +23,7 @@ mpl.rcParams['toolbar'] = 'None'
 from matplotlib.widgets import Button
 from os import listdir
 from os.path import isfile, join
+import cv2
 
 json_images = []
 
@@ -82,17 +83,16 @@ def next(event):  #called when the next button is hit
         plt.close()
     else:
         filename = path + "/" + onlyfiles.pop()
-        image = mpimg.imread(filename)
-        imshow_obj.set_data(image)
+        print(len(onlyfiles))
+        image = cv2.imread(filename)
+        imshow_obj.set_data(cv2.cvtColor(image, cv2.COLOR_BGR2RGB))
         top_corners[:] = []
         bottom_corners[:] = []
         removeAllPatches()
     
 
 def clear(event): #called when the clear button is hit
-    top_corners[:] = []
-    bottom_corners[:] = []
-    removeAllPatches()
+    pass
 
 def onclick(event):  #called when anywhere inside the window is clicked
     if event.xdata > 1 and event.ydata > 1:
@@ -100,7 +100,7 @@ def onclick(event):  #called when anywhere inside the window is clicked
             bottom_corners.append([event.xdata,event.ydata])
             patchCache.append(patches.Rectangle((top_corners[-1][0], top_corners[-1][1])
                                            ,bottom_corners[-1][0] - top_corners[-1][0], bottom_corners[-1][1] - top_corners[-1][1],
-                                           hatch='/',fill=False))
+                                           hatch='/',fill=False, color='green'))
             ax.add_patch(patchCache[-1])
             plt.draw()
         else:
@@ -118,7 +118,7 @@ ax = plt.gca()
 
 #get our files for processing
 if len(sys.argv) < 3:
-    print "Too few params, try something like:  python make_json.py train640x480 train.json"
+    print("Too few params, try something like:  python make_json.py train640x480 train.json")
     exit()
 path = sys.argv[1]
 outfile_name = sys.argv[2]
@@ -129,10 +129,17 @@ progress_outfile = open(outfile_name + "_work", 'w')
 
 onlyfiles = [f for f in listdir(path) if isfile(join(path, f))]
 
+###################################################
+
+###################################################
+
+
 #
 filename = path + "/" + onlyfiles.pop()
-image = mpimg.imread(filename)
-imshow_obj = ax.imshow(image)
+#image = mpimg.imread(filename)
+image = cv2.imread(filename)
+imshow_obj = ax.imshow(cv2.cvtColor(image, cv2.COLOR_BGR2RGB))
+#print image.shape
 
 plt.axis("off")
 fig = plt.gcf()
@@ -157,4 +164,4 @@ outfile.close()
 progress_outfile.close()
 
 
-print "finished"
+print("finished")
