@@ -145,7 +145,7 @@ def processVideo(videoPath, init_params):
     f_name = os.path.dirname(videoPath)
     b_name = os.path.basename(videoPath)
     [b_name1,bname2] = os.path.splitext(b_name)
-    directory = f_name+'/'+b_name1+'_labelled'
+    directory = b_name1+'_labelled'
     if not os.path.exists(directory):
         os.makedirs(directory)
 
