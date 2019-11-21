@@ -238,7 +238,7 @@ if __name__ == '__main__':
     gpu = args.gpu
 
     #Path to save coordinates to
-    outpath = os.path.join(os.getcwd(),folder,'_coordinates.json')
+    outpath = os.path.join(os.getcwd(),'_coordinates.json')
 
     print('Saving coordinates to: ', outpath)
     
