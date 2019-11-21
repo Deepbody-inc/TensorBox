@@ -142,10 +142,9 @@ def draw_results(image_path, anno):
 
 
 def processVideo(videoPath, init_params):
+    
     f_name = os.path.dirname(videoPath)
-    b_name = os.path.basename(videoPath)
-    [b_name1,bname2] = os.path.splitext(b_name)
-    directory = b_name1+'_labelled'
+    directory = f_name+'_labelled'
     if not os.path.exists(directory):
         os.makedirs(directory)
     print(directory)
