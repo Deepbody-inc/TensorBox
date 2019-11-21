@@ -148,6 +148,7 @@ def processVideo(videoPath, init_params):
     directory = b_name1+'_labelled'
     if not os.path.exists(directory):
         os.makedirs(directory)
+    print(directory)
 
 
     img_list = os.listdir(videoPath)
@@ -156,7 +157,8 @@ def processVideo(videoPath, init_params):
     for img in img_list:
         ret = True
         frame = cv2.imread(img)
-        if ret==True:          
+        if ret==True:
+            print(img)
             data_list = hot_predict(frame, init_params, False)
             pil_img = Image.fromarray(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB))
             drawn_frame = draw_results(pil_img, data_list)
