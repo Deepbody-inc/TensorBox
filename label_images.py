@@ -13,7 +13,7 @@ import argparse
 from scipy.misc import imread, imresize
 from PIL import Image, ImageDraw
 
-from train3 import build_forward
+from train import build_forward
 from utils.annolist import AnnotationLib as al
 from utils.train_utils import add_rectangles, rescale_boxes
 
