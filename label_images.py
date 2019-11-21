@@ -52,8 +52,12 @@ def initialize(weights_path, hypes_path, options=None):
     else:
         pred_boxes, pred_logits, pred_confidences = build_forward(H, tf.expand_dims(x_in, 0), 'test', reuse=None)
 
+    config = tf.ConfigProto(log_device_placement=True)
+    #modification
+    config.gpu_options.allow_growth=True
+    
     saver = tf.train.Saver()
-    sess = tf.Session()
+    sess = tf.Session(config=config)
     sess.run(tf.global_variables_initializer())
     saver.restore(sess, weights_path)
     return {'sess': sess, 'pred_boxes': pred_boxes, 'pred_confidences': pred_confidences, 'x_in': x_in, 'hypes': H}
